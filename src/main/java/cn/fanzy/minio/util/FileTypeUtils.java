@@ -8,7 +8,7 @@ import java.io.File;
  * 文件类型工具类
  *
  * @author fanzaiyang
- * @since  2021/08/24
+ * @since 2021/08/24
  */
 public class FileTypeUtils {
 
