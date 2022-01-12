@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * <h1>minio配置</h1>
+ * minio配置
  *
  * @author fanzaiyang
  * @since 2021/09/16
@@ -31,6 +31,9 @@ public class MinioConfiguration {
     @Autowired
     private MinioProperties minioProperties;
 
+    /**
+     * MinioConfigStorage
+     */
     public static List<MinioConfigStorage> minioConfigs;
     private static final Map<String, MinioService> minioServices = Maps.newLinkedHashMap();
 
@@ -58,6 +61,9 @@ public class MinioConfiguration {
         return minioServices.get(alias);
     }
 
+    /**
+     * 初始化服务
+     */
     @PostConstruct
     public void initServices() {
         minioConfigs = minioProperties.getMinioConfigs();

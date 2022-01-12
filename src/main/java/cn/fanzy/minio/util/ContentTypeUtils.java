@@ -8,6 +8,12 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * 内容类型工具类
+ *
+ * @author fanzaiyang
+ * @since  2022/01/12
+ */
 public class ContentTypeUtils {
     /**
      * 文件扩展名.ai
@@ -57,6 +63,12 @@ public class ContentTypeUtils {
         );
     }
 
+    /**
+     * 获取内容类型
+     *
+     * @param type 类型
+     * @return {@link String}
+     */
     public static String getContentType(String type) {
         Optional<Type> optional = contentTypes.stream().filter(item -> item.getType().equalsIgnoreCase(type)).findAny();
         if (optional.isPresent()) {
@@ -66,6 +78,12 @@ public class ContentTypeUtils {
     }
 
 
+    /**
+     * 类型
+     *
+     * @author fanzaiyang
+     * @since  2022/01/12
+     */
     @Data
     @NoArgsConstructor
     @AllArgsConstructor

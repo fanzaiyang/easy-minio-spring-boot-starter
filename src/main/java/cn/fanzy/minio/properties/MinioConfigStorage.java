@@ -58,6 +58,11 @@ public class MinioConfigStorage {
      */
     private String privateEndpoint;
 
+    /**
+     * 得到别名
+     *
+     * @return {@link String}
+     */
     public String getAlias() {
         if (!StringUtils.hasText(alias)) {
             log.warn("未设置别名，默认使用令牌桶作为别名。");
@@ -66,6 +71,11 @@ public class MinioConfigStorage {
         return alias;
     }
 
+    /**
+     * 获取内网端点
+     *
+     * @return {@link String}
+     */
     public String getPrivateEndpoint() {
         if (!StringUtils.hasText(privateEndpoint)) {
             log.warn("未设置内网地址，默认使用公共地址。");
