@@ -48,20 +48,16 @@ public class ContentTypeUtils {
 
     public static final String DOC = "application/msword";
 
-    private static List<Type> contentTypes;
-
-    public ContentTypeUtils() {
-        contentTypes = Lists.newArrayList(
-                new Type("AI", AI),
-                new Type("JPG", JPG),
-                new Type("PNG", PNG),
-                new Type("PDF", PDF),
-                new Type("MP4", MP4),
-                new Type("MP3", MP3),
-                new Type("XLS", XLS),
-                new Type("DOC", DOC)
-        );
-    }
+    private static final List<Type> contentTypes=Lists.newArrayList(
+            new Type("AI", AI),
+            new Type("JPG", JPG),
+            new Type("PNG", PNG),
+            new Type("PDF", PDF),
+            new Type("MP4", MP4),
+            new Type("MP3", MP3),
+            new Type("XLS", XLS),
+            new Type("DOC", DOC)
+    );
 
     /**
      * 获取内容类型
