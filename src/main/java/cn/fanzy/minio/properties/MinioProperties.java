@@ -12,7 +12,7 @@ import java.util.List;
  * @since 2021/09/22
  */
 @Data
-@ConfigurationProperties(prefix = "yf.common.minio")
+@ConfigurationProperties(prefix = "minio")
 public class MinioProperties {
     /**
      * 是否启用，默认启用
