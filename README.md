@@ -37,14 +37,14 @@ minio:
       access-key: minioadmin #必填项：MinIO外网登录账号
       secret-key: minioadmin #必填项：MinIO外网登录密码
       bucket-name: test #必填项：MinIO存储桶名字
-      private-endpoint: http://127.0.0.1:9000 #非必填：当可以内网访问时建议配置此参数，提高传输速度。默认同public-endpoint
+      private-endpoint: http://内网地址1 #非必填：当可以内网访问时建议配置此参数，提高传输速度。默认同public-endpoint
     # 第2个MinIO参数
     - alias: test2 #非必填：不填时同存储桶名字，该参数用于标识唯一，防止多个配置参数存储桶重名
       public-endpoint: http://地址2 #必填项：MinIO外网访问地址
       access-key: minioadmin #必填项：MinIO外网登录账号
       secret-key: minioadmin #必填项：MinIO外网登录密码
       bucket-name: test #必填项：MinIO存储桶名字
-      private-endpoint: http://127.0.0.1:9000 #非必填：当可以内网访问时建议配置此参数，提高传输速度。默认同public-endpoint
+      private-endpoint: http://内网地址2 #非必填：当可以内网访问时建议配置此参数，提高传输速度。默认同public-endpoint
 ```
 
 * 使用示例
