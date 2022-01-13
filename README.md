@@ -20,6 +20,34 @@
 
 #### 使用说明
 
+* 引入POM依赖
+```xml
+<dependency>
+  <groupId>cn.fanzy.minio</groupId>
+  <artifactId>easy-minio-spring-boot-starter</artifactId>
+   <version>1.0.1</version>
+</dependency>
+```
+* 修改配置文件
+```yaml
+minio:
+  #enable: true # 默认开启
+  minio-configs:
+    # 第1个MinIO参数
+    - alias: test1 #非必填：不填时同存储桶名字，该参数用于标识唯一，防止多个配置参数存储桶重名
+      public-endpoint: http://地址1 #必填项：MinIO外网访问地址
+      access-key: minioadmin #必填项：MinIO外网登录账号
+      secret-key: minioadmin #必填项：MinIO外网登录密码
+      bucket-name: test #必填项：MinIO存储桶名字
+      private-endpoint: http://127.0.0.1:9000 #非必填：当可以内网访问时建议配置此参数，提高传输速度。默认同public-endpoint
+    # 第2个MinIO参数
+    - alias: test2 #非必填：不填时同存储桶名字，该参数用于标识唯一，防止多个配置参数存储桶重名
+      public-endpoint: http://地址2 #必填项：MinIO外网访问地址
+      access-key: minioadmin #必填项：MinIO外网登录账号
+      secret-key: minioadmin #必填项：MinIO外网登录密码
+      bucket-name: test #必填项：MinIO存储桶名字
+      private-endpoint: http://127.0.0.1:9000 #非必填：当可以内网访问时建议配置此参数，提高传输速度。默认同public-endpoint
+```
 * 使用示例
 
 ```java
