@@ -2,7 +2,7 @@
 
 #### 介绍
 
-这个一个方便你快速集成`MinIO`的Spring Boot扩展，支持多MinIO客户端接入。内置常用上传和下载等方法。
+这个一个让你的Spring Boot项目快速集成`MinIO`的扩展，支持多MinIO客户端接入。 内置常用上传和下载等方法。
 > 官方文档地址：https://docs.min.io/docs/java-client-api-reference.html
 
 #### 特征
