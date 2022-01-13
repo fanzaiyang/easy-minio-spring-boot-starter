@@ -16,6 +16,9 @@
 
 * 引入POM依赖
 
+***新版本审核中...***
+
+* 版本：[![Maven Central](https://img.shields.io/maven-central/v/cn.fanzy.minio/easy-minio-spring-boot-starter.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22cn.fanzy.minio%22%20AND%20a:%22easy-minio-spring-boot-starter%22)
 ```xml
 
 <dependency>
