@@ -21,7 +21,7 @@
 <dependency>
     <groupId>cn.fanzy.minio</groupId>
     <artifactId>easy-minio-spring-boot-starter</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
 </dependency>
 ```
 
@@ -122,7 +122,11 @@ class MinioTests {
     }
 }
 ```
-
+#### 更新日志
+* 1.0.2
+  * fix：获取content-type空指针问题。
+* 1.0.1
+  * fix：修改配置文件前缀为`minio`开头
 #### 参与贡献
 
 1. Fork 本仓库
