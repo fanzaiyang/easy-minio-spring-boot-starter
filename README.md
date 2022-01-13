@@ -11,18 +11,22 @@
     * 当配置了内网地址时，上传和下载使用内网地址，提升速度。
 * 多MinIO服务端支持
     * 配置支持多个MinIO服务器，方便自由切换。
-    
+
 #### 使用说明
 
 * 引入POM依赖
+
 ```xml
+
 <dependency>
-  <groupId>cn.fanzy.minio</groupId>
-  <artifactId>easy-minio-spring-boot-starter</artifactId>
-   <version>1.0.1</version>
+    <groupId>cn.fanzy.minio</groupId>
+    <artifactId>easy-minio-spring-boot-starter</artifactId>
+    <version>1.0.1</version>
 </dependency>
 ```
+
 * 修改配置文件
+
 ```yaml
 minio:
   #enable: true # 默认开启
@@ -42,6 +46,7 @@ minio:
       bucket-name: test #必填项：MinIO存储桶名字
       private-endpoint: http://127.0.0.1:9000 #非必填：当可以内网访问时建议配置此参数，提高传输速度。默认同public-endpoint
 ```
+
 * 使用示例
 
 ```java
@@ -91,6 +96,31 @@ class MinioTests {
     }
 }
 
+```
+
+* 内置方法不满足你的需要时
+
+> 当内网方法无法满足你的需求时，你可以直接使用MinIO官方JavaSDK的方法。
+> 官方使用方法见官网：https://docs.min.io/docs/java-client-api-reference.html
+
+```java
+
+@SpringBootTest
+class MinioTests {
+    /**
+     * MinIO client其他用法
+     */
+    @SneakyThrows
+    void testMinioClient() {
+        // 通过MinioConfiguration获取MinioClient类（MinIO官方SDK）
+        MinioClient client = MinioConfiguration.getMinioService().getClient();
+        boolean exists = client.bucketExists(BucketExistsArgs.builder()
+                .bucket("test")
+                .build());
+        System.out.println(exists);
+
+    }
+}
 ```
 
 #### 参与贡献
