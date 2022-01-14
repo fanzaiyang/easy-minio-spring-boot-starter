@@ -17,7 +17,9 @@
 * 引入POM依赖
 
 
-* 版本：[![Maven Central](https://img.shields.io/maven-central/v/cn.fanzy.minio/easy-minio-spring-boot-starter.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22cn.fanzy.minio%22%20AND%20a:%22easy-minio-spring-boot-starter%22)
+*
+版本：[![Maven Central](https://img.shields.io/maven-central/v/cn.fanzy.minio/easy-minio-spring-boot-starter.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22cn.fanzy.minio%22%20AND%20a:%22easy-minio-spring-boot-starter%22)
+
 ```xml
 
 <dependency>
@@ -63,6 +65,27 @@ class MinioTests {
     @Test
     void testUploadMin() {
         MinioResp resp = MinioConfiguration.getMinioService().upload(new File("1.jpg"), "1.jpg");
+        System.out.println(resp);
+    }
+
+    /**
+     * 如果设置多个MinIO配置，你可这样指定特定某一个。
+     */
+    @SneakyThrows
+    @Test
+    void testUploadMin2() {
+        // 这里表示，获取别名为alias的服务类。
+        MinioResp resp = MinioConfiguration.getMinioService("alias").upload(new File("1.jpg"), "1.jpg");
+        System.out.println(resp);
+    }
+
+    @SneakyThrows
+    @Test
+    void testUploadMin3() {
+        // 这里表示，不使用配置文件的存储桶，而指定另外一个新的。
+        MinioResp resp = MinioConfiguration.getMinioService("alias")
+                .bucketName("新的存储桶")
+                .upload(new File("1.jpg"), "1.jpg");
         System.out.println(resp);
     }
 
@@ -124,11 +147,20 @@ class MinioTests {
     }
 }
 ```
+
+* 配置文件设置了多个MinIO时
+
+> 你可以`MinioConfiguration.getMinioService(ALIAS)`获取特定某一个。
+>
+> 注意⚠️：当设置多个且未指定某个时，默认取第一个。
+
 #### 更新日志
+
 * 1.0.2
-  * fix：获取content-type空指针问题。
+    * fix：获取content-type空指针问题。
 * 1.0.1
-  * fix：修改配置文件前缀为`minio`开头
+    * fix：修改配置文件前缀为`minio`开头
+
 #### 参与贡献
 
 1. Fork 本仓库
