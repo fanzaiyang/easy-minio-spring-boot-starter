@@ -160,7 +160,11 @@ class MinioTests {
     * fix：获取content-type空指针问题。
 * 1.0.1
     * fix：修改配置文件前缀为`minio`开头
-
+#### 开发计划
+> 方便开发者快速设置存储桶访问策略。
+> 使`setBucketPolicy(SetBucketPolicyArgs args)` 方法，使用更便捷。
+> 
+> 关于策略文档见：https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-iam-policies.html
 #### 参与贡献
 
 1. Fork 本仓库

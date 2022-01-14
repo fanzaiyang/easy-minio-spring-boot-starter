@@ -1,7 +1,7 @@
 package cn.fanzy.minio;
 
 import cn.fanzy.minio.model.MinioResp;
-import io.minio.BucketExistsArgs;
+import io.minio.GetBucketPolicyArgs;
 import io.minio.MinioClient;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
@@ -32,6 +32,7 @@ public class MinioTests {
         MinioResp resp = MinioConfiguration.getMinioService("alias").upload(new File("1.jpg"), "1.jpg");
         System.out.println(resp);
     }
+
     @SneakyThrows
     @Test
     void testUploadMin3() {
@@ -41,6 +42,7 @@ public class MinioTests {
                 .upload(new File("1.jpg"), "1.jpg");
         System.out.println(resp);
     }
+
     /**
      * 获取临时文件地址
      */
@@ -63,12 +65,13 @@ public class MinioTests {
      * MinIO client其他用法
      */
     @SneakyThrows
+    @Test
     void testMinioClient() {
         MinioClient client = MinioConfiguration.getMinioService().getClient();
-        boolean exists = client.bucketExists(BucketExistsArgs.builder()
+        String test = client.getBucketPolicy(GetBucketPolicyArgs.builder()
                 .bucket("test")
                 .build());
-        System.out.println(exists);
+        System.out.println(test);
 
     }
 }
